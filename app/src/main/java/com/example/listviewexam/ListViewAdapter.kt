@@ -8,9 +8,6 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 
 class ListViewAdapter(val context: Context, var itemList: MutableList<ListViewItem>) : BaseAdapter() {
-    private lateinit var title: TextView
-    private lateinit var content: TextView
-
 
     //ListView에 속한 item의 전체 수를 반환한다.
     override fun getCount(): Int {
@@ -47,12 +44,12 @@ class ListViewAdapter(val context: Context, var itemList: MutableList<ListViewIt
         return view
     }
 
-    fun addItem(title: String?, content: String?) {
-        val item = ListViewItem("title", "content")
-
-        item.title = title
-        item.content = content
-
-        itemList.add(item)
-    }
+//    fun addItem(title: String?, content: String?) {
+//        val item = ListViewItem("title", "content")
+//
+//        item.title = title
+//        item.content = content
+//
+//        itemList.add(item)
+//    }
 }
