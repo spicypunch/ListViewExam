@@ -3,8 +3,13 @@ package com.example.listviewexam
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import com.example.listviewexam.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val itemAdapter by lazy { ListViewAdapter(this, itemList) }
+
 
     var itemList = mutableListOf<ListViewItem>(
         ListViewItem("Hello", "World")
@@ -12,10 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val itemAdapter = ListViewAdapter(this, itemList)
+        setContentView(binding.root)
         val listView : ListView = findViewById(R.id.list_view)
-        listView.adapter = itemAdapter
+        binding.listView.adapter = itemAdapter
+
+
+
     }
 }
