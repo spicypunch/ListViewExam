@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val itemAdapter by lazy { ListViewAdapter(this, itemList) }
 
 
-    var itemList = mutableListOf<ListViewItem>(
+    private var itemList = mutableListOf(
         ListViewItem("Hello", "World")
     )
 
