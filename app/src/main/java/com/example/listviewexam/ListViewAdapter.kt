@@ -29,14 +29,12 @@ class ListViewAdapter(val context: Context, var itemList: MutableList<ListViewIt
 
     //xml 파일의 View와 데이터를 연결하는 핵심 역할을 하는 메소드이다.
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        /* LayoutInflater는 item을 Adapter에서 사용할 View로 부풀려주는(inflate) 역할을 한다. */
+
         val view: View = LayoutInflater.from(context).inflate(R.layout.item_view, null)
 
-        /* 위에서 생성된 view를 res-layout-main_lv_item.xml 파일의 각 View와 연결하는 과정이다. */
         val title = view.findViewById<TextView>(R.id.title)
         val content = view.findViewById<TextView>(R.id.content)
 
-        /* ArrayList<Dog>의 변수 dog의 이미지와 데이터를 ImageView와 TextView에 담는다. */
         val list = itemList[position]
         title.text = list.title
         content.text = list.content
