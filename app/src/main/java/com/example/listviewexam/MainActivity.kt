@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        binding.listView.adapter = itemAdapter
 
         binding.plusBtn.setOnClickListener {
             addList()
@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         count++
         itemList.add(ListViewItem("$count", "$count"))
         Log.e("list", itemList.toString())
-        binding.listView.adapter = itemAdapter
+        itemAdapter.notifyDataSetChanged()
     }
 
     private fun removeList() {
         if (count != 0) {
             itemList.removeAt(count--)
             Log.e("list", itemList.toString())
-            binding.listView.adapter = itemAdapter
+            itemAdapter.notifyDataSetChanged()
         }
 
     }
